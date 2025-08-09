@@ -16,7 +16,7 @@
 3. **Go to Settings → Environment Variables**
 4. **Add New Variable:**
    - **Name**: `VITE_GEMINI_API_KEY`
-   - **Value**: `AIzaSyAdHetU5spgHcOs2e9zWkRH8gjE8FY4mJM` 
+   - **Value**: `[YOUR_GEMINI_API_KEY_HERE]` ⚠️ **JANGAN TULIS API KEY ASLI DI SINI**
    - **Environment**: Production, Preview, Development (pilih semua)
 
 5. **Add Another Variable:**
@@ -24,9 +24,15 @@
    - **Value**: `MindClear+`
    - **Environment**: Production, Preview, Development
 
-### 📸 Screenshot Vercel Environment Variables:
+### � **KEAMANAN API KEY:**
+- **JANGAN PERNAH** commit API key ke GitHub
+- **SELALU** gunakan Environment Variables di Vercel
+- **COPY** API key dari file .env lokal Anda
+- **PASTE** langsung di Vercel Dashboard
+
+### �📸 Screenshot Vercel Environment Variables:
 ```
-VITE_GEMINI_API_KEY = AIzaSyAdHetU5spgHcOs2e9zWkRH8gjE8FY4mJM
+VITE_GEMINI_API_KEY = [YOUR_ACTUAL_API_KEY]
 VITE_APP_NAME = MindClear+
 ```
 
