@@ -5,14 +5,14 @@ import "./index.css";
 
 function App() {
   return (
-    <div 
+    <div
       className="App"
       style={{
-        width: '100%',
-        minHeight: '100vh',
+        width: "100%",
+        minHeight: "100vh",
         margin: 0,
         padding: 0,
-        position: 'relative'
+        position: "relative",
       }}
     >
       <CursorTrail />

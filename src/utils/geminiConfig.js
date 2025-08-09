@@ -94,51 +94,205 @@ const fallbackAnalysis = (text) => {
   // Keywords for different emotions
   const emotionKeywords = {
     cemas: [
-      "cemas", "khawatir", "takut", "nervous", "anxiety", "was-was", "deg-degan", "panik",
-      "grogi", "tegang", "worry", "afraid", "scared", "paranoid", "gelisah", "restless",
-      "presentasi", "ujian", "interview", "meeting", "deadline", "besok", "nanti",
-      "gimana ya", "bagaimana kalau", "takut kalau", "pusing mikirin"
+      "cemas",
+      "khawatir",
+      "takut",
+      "nervous",
+      "anxiety",
+      "was-was",
+      "deg-degan",
+      "panik",
+      "grogi",
+      "tegang",
+      "worry",
+      "afraid",
+      "scared",
+      "paranoid",
+      "gelisah",
+      "restless",
+      "presentasi",
+      "ujian",
+      "interview",
+      "meeting",
+      "deadline",
+      "besok",
+      "nanti",
+      "gimana ya",
+      "bagaimana kalau",
+      "takut kalau",
+      "pusing mikirin",
     ],
     stres: [
-      "stres", "stress", "overwhelmed", "capek", "lelah", "burnout", "pressure", "beban",
-      "deadline", "tugas", "kerja", "kuliah", "tuntutan", "banyak banget", "gak kuat",
-      "pusing", "overload", "exhausted", "tired", "muak", "jenuh", "bosan",
-      "gak ada waktu", "sibuk banget", "multitasking", "buru-buru"
+      "stres",
+      "stress",
+      "overwhelmed",
+      "capek",
+      "lelah",
+      "burnout",
+      "pressure",
+      "beban",
+      "deadline",
+      "tugas",
+      "kerja",
+      "kuliah",
+      "tuntutan",
+      "banyak banget",
+      "gak kuat",
+      "pusing",
+      "overload",
+      "exhausted",
+      "tired",
+      "muak",
+      "jenuh",
+      "bosan",
+      "gak ada waktu",
+      "sibuk banget",
+      "multitasking",
+      "buru-buru",
     ],
     sedih: [
-      "sedih", "sad", "nangis", "menangis", "broken", "hurt", "sakit", "kecewa", "down",
-      "galau", "lonely", "kesepian", "heartbreak", "putus", "ditinggal", "kehilangan",
-      "hampa", "kosong", "depress", "terpuruk", "hancur", "patah hati", "duka",
-      "mellow", "melankolis", "suram", "kelam", "nestapa"
+      "sedih",
+      "sad",
+      "nangis",
+      "menangis",
+      "broken",
+      "hurt",
+      "sakit",
+      "kecewa",
+      "down",
+      "galau",
+      "lonely",
+      "kesepian",
+      "heartbreak",
+      "putus",
+      "ditinggal",
+      "kehilangan",
+      "hampa",
+      "kosong",
+      "depress",
+      "terpuruk",
+      "hancur",
+      "patah hati",
+      "duka",
+      "mellow",
+      "melankolis",
+      "suram",
+      "kelam",
+      "nestapa",
     ],
     marah: [
-      "marah", "angry", "kesel", "jengkel", "benci", "hate", "furious", "annoyed",
-      "dongkol", "sebel", "geram", "murka", "rage", "pissed", "emosi", "triggered",
-      "ilfeel", "toxic", "nyebelin", "menyebalkan", "ganggu", "irritated",
-      "frustasi", "frustrated", "gemes", "pengen nonjok"
+      "marah",
+      "angry",
+      "kesel",
+      "jengkel",
+      "benci",
+      "hate",
+      "furious",
+      "annoyed",
+      "dongkol",
+      "sebel",
+      "geram",
+      "murka",
+      "rage",
+      "pissed",
+      "emosi",
+      "triggered",
+      "ilfeel",
+      "toxic",
+      "nyebelin",
+      "menyebalkan",
+      "ganggu",
+      "irritated",
+      "frustasi",
+      "frustrated",
+      "gemes",
+      "pengen nonjok",
     ],
     bingung: [
-      "bingung", "confused", "overthinking", "stuck", "gak tau", "tidak tahu", "pusing",
-      "dilema", "galau", "ragu", "doubt", "uncertain", "unclear", "mentok",
-      "blank", "lost", "gimana ya", "bagaimana", "entah", "gatau lagi",
-      "campur aduk", "mixed up", "complicated", "ribet", "mumet"
+      "bingung",
+      "confused",
+      "overthinking",
+      "stuck",
+      "gak tau",
+      "tidak tahu",
+      "pusing",
+      "dilema",
+      "galau",
+      "ragu",
+      "doubt",
+      "uncertain",
+      "unclear",
+      "mentok",
+      "blank",
+      "lost",
+      "gimana ya",
+      "bagaimana",
+      "entah",
+      "gatau lagi",
+      "campur aduk",
+      "mixed up",
+      "complicated",
+      "ribet",
+      "mumet",
     ],
     bahagia: [
-      "bahagia", "happy", "senang", "excited", "grateful", "syukur", "amazing", "wonderful",
-      "gembira", "riang", "ceria", "antusias", "semangat", "optimis", "positif",
-      "blessed", "thankful", "appreciate", "love", "enjoy", "fun", "awesome",
-      "great", "fantastic", "excellent", "perfect", "hebat", "keren"
+      "bahagia",
+      "happy",
+      "senang",
+      "excited",
+      "grateful",
+      "syukur",
+      "amazing",
+      "wonderful",
+      "gembira",
+      "riang",
+      "ceria",
+      "antusias",
+      "semangat",
+      "optimis",
+      "positif",
+      "blessed",
+      "thankful",
+      "appreciate",
+      "love",
+      "enjoy",
+      "fun",
+      "awesome",
+      "great",
+      "fantastic",
+      "excellent",
+      "perfect",
+      "hebat",
+      "keren",
     ],
   };
 
   // Contextual phrases that indicate emotions
   const contextualPhrases = {
-    cemas: ["gimana nanti", "takut kalau", "bagaimana kalau", "deg-degan", "was-was"],
+    cemas: [
+      "gimana nanti",
+      "takut kalau",
+      "bagaimana kalau",
+      "deg-degan",
+      "was-was",
+    ],
     stres: ["banyak banget", "gak kuat", "overwhelmed", "deadline", "tuntutan"],
-    sedih: ["rasanya hampa", "hati kosong", "sedih banget", "pengen nangis", "broken"],
-    marah: ["kesel banget", "pengen nonjok", "toxic banget", "menyebalkan", "annoying"],
+    sedih: [
+      "rasanya hampa",
+      "hati kosong",
+      "sedih banget",
+      "pengen nangis",
+      "broken",
+    ],
+    marah: [
+      "kesel banget",
+      "pengen nonjok",
+      "toxic banget",
+      "menyebalkan",
+      "annoying",
+    ],
     bingung: ["gak tau lagi", "gimana ya", "dilema banget", "stuck", "mentok"],
-    bahagia: ["senang banget", "syukur", "grateful", "amazing day", "perfect"]
+    bahagia: ["senang banget", "syukur", "grateful", "amazing day", "perfect"],
   };
 
   let detectedEmotion = "netral";
@@ -147,23 +301,23 @@ const fallbackAnalysis = (text) => {
   // Check for keyword matches with scoring
   for (const [emotion, keywords] of Object.entries(emotionKeywords)) {
     let score = 0;
-    
+
     // Check individual keywords
-    keywords.forEach(keyword => {
+    keywords.forEach((keyword) => {
       if (lowerText.includes(keyword)) {
         score += 1;
       }
     });
-    
+
     // Check contextual phrases (higher weight)
     if (contextualPhrases[emotion]) {
-      contextualPhrases[emotion].forEach(phrase => {
+      contextualPhrases[emotion].forEach((phrase) => {
         if (lowerText.includes(phrase)) {
           score += 2; // Higher weight for contextual phrases
         }
       });
     }
-    
+
     if (score > maxScore) {
       maxScore = score;
       detectedEmotion = emotion;

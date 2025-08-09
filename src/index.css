@@ -11,7 +11,7 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  
+
   /* Modern color variables */
   --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   --neon-blue: #00f5ff;
@@ -61,10 +61,11 @@ body {
 
 /* Modern Gradient Backgrounds with Neon Effects */
 .bg-cemas {
-  background: linear-gradient(135deg, 
-    #667eea 0%, 
-    #764ba2 30%, 
-    #8338ec 70%, 
+  background: linear-gradient(
+    135deg,
+    #667eea 0%,
+    #764ba2 30%,
+    #8338ec 70%,
     #3a0ca3 100%
   );
   position: relative;
@@ -78,10 +79,21 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background: 
-    radial-gradient(circle at 20% 80%, rgba(0, 245, 255, 0.2) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(255, 0, 110, 0.2) 0%, transparent 50%),
-    radial-gradient(circle at 40% 40%, rgba(131, 56, 236, 0.3) 0%, transparent 70%);
+  background: radial-gradient(
+      circle at 20% 80%,
+      rgba(0, 245, 255, 0.2) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 80% 20%,
+      rgba(255, 0, 110, 0.2) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 40% 40%,
+      rgba(131, 56, 236, 0.3) 0%,
+      transparent 70%
+    );
   animation: neonFloat 8s ease-in-out infinite;
 }
 
@@ -92,15 +104,21 @@ body {
   left: -50%;
   width: 200%;
   height: 200%;
-  background: conic-gradient(from 0deg, transparent, rgba(0, 245, 255, 0.1), transparent);
+  background: conic-gradient(
+    from 0deg,
+    transparent,
+    rgba(0, 245, 255, 0.1),
+    transparent
+  );
   animation: rotate 20s linear infinite;
 }
 
 .bg-stres {
-  background: linear-gradient(135deg, 
-    #ff006e 0%, 
-    #ff4081 30%, 
-    #e91e63 70%, 
+  background: linear-gradient(
+    135deg,
+    #ff006e 0%,
+    #ff4081 30%,
+    #e91e63 70%,
     #ad1457 100%
   );
   position: relative;
@@ -114,17 +132,25 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background: 
-    radial-gradient(circle at 30% 70%, rgba(255, 107, 107, 0.3) 0%, transparent 50%),
-    radial-gradient(circle at 70% 30%, rgba(255, 140, 0, 0.2) 0%, transparent 50%);
+  background: radial-gradient(
+      circle at 30% 70%,
+      rgba(255, 107, 107, 0.3) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 70% 30%,
+      rgba(255, 140, 0, 0.2) 0%,
+      transparent 50%
+    );
   animation: pulseStress 6s ease-in-out infinite;
 }
 
 .bg-sedih {
-  background: linear-gradient(135deg, 
-    #1e3c72 0%, 
-    #2a5298 30%, 
-    #667eea 70%, 
+  background: linear-gradient(
+    135deg,
+    #1e3c72 0%,
+    #2a5298 30%,
+    #667eea 70%,
     #764ba2 100%
   );
   position: relative;
@@ -138,9 +164,17 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background: 
-    radial-gradient(circle at 50% 50%, rgba(102, 126, 234, 0.2) 0%, transparent 70%),
-    linear-gradient(45deg, transparent 40%, rgba(255, 255, 255, 0.03) 50%, transparent 60%);
+  background: radial-gradient(
+      circle at 50% 50%,
+      rgba(102, 126, 234, 0.2) 0%,
+      transparent 70%
+    ),
+    linear-gradient(
+      45deg,
+      transparent 40%,
+      rgba(255, 255, 255, 0.03) 50%,
+      transparent 60%
+    );
   animation: gentleWave 10s ease-in-out infinite;
 }
 
@@ -163,60 +197,79 @@ body {
 
 /* Modern Animation Keyframes */
 @keyframes neonFloat {
-  0%, 100% { 
+  0%,
+  100% {
     transform: translateY(0px) scale(1);
     opacity: 0.8;
   }
-  33% { 
+  33% {
     transform: translateY(-10px) scale(1.02);
     opacity: 1;
   }
-  66% { 
+  66% {
     transform: translateY(5px) scale(0.98);
     opacity: 0.9;
   }
 }
 
 @keyframes rotate {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 @keyframes pulseStress {
-  0%, 100% { 
+  0%,
+  100% {
     transform: scale(1);
     filter: brightness(1);
   }
-  50% { 
+  50% {
     transform: scale(1.01);
     filter: brightness(1.1);
   }
 }
 
 @keyframes gentleWave {
-  0%, 100% { 
+  0%,
+  100% {
     transform: translateY(0px);
     opacity: 0.6;
   }
-  50% { 
+  50% {
     transform: translateY(-8px);
     opacity: 0.8;
   }
 }
 
 @keyframes glitch {
-  0%, 100% { transform: translateX(0); }
-  20% { transform: translateX(-2px); }
-  40% { transform: translateX(2px); }
-  60% { transform: translateX(-1px); }
-  80% { transform: translateX(1px); }
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  20% {
+    transform: translateX(-2px);
+  }
+  40% {
+    transform: translateX(2px);
+  }
+  60% {
+    transform: translateX(-1px);
+  }
+  80% {
+    transform: translateX(1px);
+  }
 }
 
 .bg-marah {
-  background: linear-gradient(135deg, 
-    #ff006e 0%, 
-    #ff4081 30%, 
-    #ff6b6b 70%, 
+  background: linear-gradient(
+    135deg,
+    #ff006e 0%,
+    #ff4081 30%,
+    #ff6b6b 70%,
     #ee5a24 100%
   );
   position: relative;
@@ -229,18 +282,21 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background: 
-    radial-gradient(circle at 25% 25%, rgba(255, 0, 110, 0.4) 0%, transparent 50%),
-    radial-gradient(circle at 75% 75%, rgba(255, 107, 107, 0.3) 0%, transparent 50%);
+  background: radial-gradient(
+      circle at 25% 25%,
+      rgba(255, 0, 110, 0.4) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 75% 75%,
+      rgba(255, 107, 107, 0.3) 0%,
+      transparent 50%
+    );
   animation: angerPulse 3s ease-in-out infinite;
 }
 
 .bg-bingung {
-  background: linear-gradient(135deg, 
-    #667eea 0%, 
-    #a8edea 50%, 
-    #fed6e3 100%
-  );
+  background: linear-gradient(135deg, #667eea 0%, #a8edea 50%, #fed6e3 100%);
   position: relative;
   overflow: hidden;
 }
@@ -252,21 +308,17 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: 
-    repeating-conic-gradient(from 0deg at 50% 50%, 
-      transparent 0deg, 
-      rgba(255, 255, 255, 0.05) 30deg, 
-      transparent 60deg
-    );
+  background: repeating-conic-gradient(
+    from 0deg at 50% 50%,
+    transparent 0deg,
+    rgba(255, 255, 255, 0.05) 30deg,
+    transparent 60deg
+  );
   animation: confusionSpin 15s linear infinite;
 }
 
 .bg-bahagia {
-  background: linear-gradient(135deg, 
-    #ffecd2 0%, 
-    #fcb69f 50%, 
-    #ffd89b 100%
-  );
+  background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 50%, #ffd89b 100%);
   position: relative;
   overflow: hidden;
 }
@@ -310,27 +362,33 @@ body {
 
 /* Additional Modern Animations */
 @keyframes angerPulse {
-  0%, 100% { 
+  0%,
+  100% {
     transform: scale(1);
     filter: brightness(1) hue-rotate(0deg);
   }
-  50% { 
+  50% {
     transform: scale(1.02);
     filter: brightness(1.2) hue-rotate(10deg);
   }
 }
 
 @keyframes confusionSpin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 @keyframes sparkle {
-  0%, 100% { 
+  0%,
+  100% {
     opacity: 0.2;
     transform: scale(1) rotate(0deg);
   }
-  50% { 
+  50% {
     opacity: 0.6;
     transform: scale(1.1) rotate(180deg);
   }
@@ -342,7 +400,13 @@ body {
   height: 50px;
   border: 3px solid transparent;
   border-radius: 50%;
-  background: conic-gradient(from 0deg, var(--neon-blue), var(--neon-purple), var(--neon-pink), var(--neon-blue));
+  background: conic-gradient(
+    from 0deg,
+    var(--neon-blue),
+    var(--neon-purple),
+    var(--neon-pink),
+    var(--neon-blue)
+  );
   animation: modernSpin 1.5s linear infinite;
   margin: 0 auto;
   position: relative;
@@ -360,8 +424,12 @@ body {
 }
 
 @keyframes modernSpin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 /* Animations */
@@ -402,7 +470,8 @@ body {
 }
 
 @keyframes bounceEmoji {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0);
   }
   50% {
@@ -411,7 +480,8 @@ body {
 }
 
 @keyframes glow {
-  0%, 100% {
+  0%,
+  100% {
     box-shadow: 0 0 20px rgba(102, 126, 234, 0.3);
   }
   50% {
@@ -438,7 +508,8 @@ body {
 
 /* Gradient animation for buttons */
 @keyframes gradientShift {
-  0%, 100% {
+  0%,
+  100% {
     background-position: 0% 50%;
   }
   50% {
@@ -448,7 +519,8 @@ body {
 
 /* Neon glow effect */
 @keyframes neonGlow {
-  0%, 100% {
+  0%,
+  100% {
     filter: brightness(1) drop-shadow(0 0 10px currentColor);
   }
   50% {

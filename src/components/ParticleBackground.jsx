@@ -1,44 +1,44 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from "react";
 
-const ParticleBackground = ({ emotion = 'neutral' }) => {
+const ParticleBackground = ({ emotion = "neutral" }) => {
   const canvasRef = useRef(null);
   const particlesRef = useRef([]);
   const animationFrameRef = useRef(null);
 
   const getParticleConfig = (emotion) => {
     const configs = {
-      'cemas': {
+      cemas: {
         count: 50,
-        colors: ['#667eea', '#764ba2', '#8338ec'],
+        colors: ["#667eea", "#764ba2", "#8338ec"],
         speed: 2,
-        size: { min: 1, max: 3 }
+        size: { min: 1, max: 3 },
       },
-      'stres': {
+      stres: {
         count: 80,
-        colors: ['#ff006e', '#ff4081', '#ff6b6b'],
+        colors: ["#ff006e", "#ff4081", "#ff6b6b"],
         speed: 3,
-        size: { min: 2, max: 4 }
+        size: { min: 2, max: 4 },
       },
-      'sedih': {
+      sedih: {
         count: 30,
-        colors: ['#1e3c72', '#2a5298', '#667eea'],
+        colors: ["#1e3c72", "#2a5298", "#667eea"],
         speed: 1,
-        size: { min: 1, max: 2 }
+        size: { min: 1, max: 2 },
       },
-      'bahagia': {
+      bahagia: {
         count: 100,
-        colors: ['#ffd89b', '#fcb69f', '#ffecd2'],
+        colors: ["#ffd89b", "#fcb69f", "#ffecd2"],
         speed: 2.5,
-        size: { min: 2, max: 5 }
+        size: { min: 2, max: 5 },
       },
-      'default': {
+      default: {
         count: 40,
-        colors: ['#667eea', '#764ba2', '#00f5ff'],
+        colors: ["#667eea", "#764ba2", "#00f5ff"],
         speed: 1.5,
-        size: { min: 1, max: 3 }
-      }
+        size: { min: 1, max: 3 },
+      },
     };
-    
+
     return configs[emotion] || configs.default;
   };
 
@@ -46,7 +46,7 @@ const ParticleBackground = ({ emotion = 'neutral' }) => {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext("2d");
     const config = getParticleConfig(emotion);
 
     // Set canvas size
@@ -54,9 +54,9 @@ const ParticleBackground = ({ emotion = 'neutral' }) => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
     };
-    
+
     resizeCanvas();
-    window.addEventListener('resize', resizeCanvas);
+    window.addEventListener("resize", resizeCanvas);
 
     // Initialize particles
     const createParticles = () => {
@@ -67,10 +67,13 @@ const ParticleBackground = ({ emotion = 'neutral' }) => {
           y: Math.random() * canvas.height,
           vx: (Math.random() - 0.5) * config.speed,
           vy: (Math.random() - 0.5) * config.speed,
-          size: Math.random() * (config.size.max - config.size.min) + config.size.min,
-          color: config.colors[Math.floor(Math.random() * config.colors.length)],
+          size:
+            Math.random() * (config.size.max - config.size.min) +
+            config.size.min,
+          color:
+            config.colors[Math.floor(Math.random() * config.colors.length)],
           opacity: Math.random() * 0.5 + 0.1,
-          pulse: Math.random() * Math.PI * 2
+          pulse: Math.random() * Math.PI * 2,
         });
       }
     };
@@ -82,7 +85,7 @@ const ParticleBackground = ({ emotion = 'neutral' }) => {
         // Update position
         particle.x += particle.vx;
         particle.y += particle.vy;
-        
+
         // Pulse effect
         particle.pulse += 0.02;
         const pulseSize = particle.size + Math.sin(particle.pulse) * 0.5;
@@ -96,21 +99,25 @@ const ParticleBackground = ({ emotion = 'neutral' }) => {
         // Draw particle
         ctx.beginPath();
         ctx.arc(particle.x, particle.y, pulseSize, 0, Math.PI * 2);
-        ctx.fillStyle = particle.color + Math.floor(particle.opacity * 255).toString(16).padStart(2, '0');
+        ctx.fillStyle =
+          particle.color +
+          Math.floor(particle.opacity * 255)
+            .toString(16)
+            .padStart(2, "0");
         ctx.fill();
 
         // Draw connections between nearby particles
-        particlesRef.current.slice(index + 1).forEach(otherParticle => {
+        particlesRef.current.slice(index + 1).forEach((otherParticle) => {
           const distance = Math.sqrt(
-            Math.pow(particle.x - otherParticle.x, 2) + 
-            Math.pow(particle.y - otherParticle.y, 2)
+            Math.pow(particle.x - otherParticle.x, 2) +
+              Math.pow(particle.y - otherParticle.y, 2)
           );
 
           if (distance < 100) {
             ctx.beginPath();
             ctx.moveTo(particle.x, particle.y);
             ctx.lineTo(otherParticle.x, otherParticle.y);
-            ctx.strokeStyle = particle.color + '20';
+            ctx.strokeStyle = particle.color + "20";
             ctx.lineWidth = 1;
             ctx.stroke();
           }
@@ -124,7 +131,7 @@ const ParticleBackground = ({ emotion = 'neutral' }) => {
     animate();
 
     return () => {
-      window.removeEventListener('resize', resizeCanvas);
+      window.removeEventListener("resize", resizeCanvas);
       if (animationFrameRef.current) {
         cancelAnimationFrame(animationFrameRef.current);
       }
@@ -135,7 +142,7 @@ const ParticleBackground = ({ emotion = 'neutral' }) => {
     <canvas
       ref={canvasRef}
       className="fixed inset-0 pointer-events-none z-0"
-      style={{ background: 'transparent' }}
+      style={{ background: "transparent" }}
     />
   );
 };
