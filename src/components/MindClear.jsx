@@ -33,20 +33,147 @@ if (typeof document !== "undefined") {
   const style = document.createElement("style");
   style.textContent = `
     ${trackSelectionAnimations}
-    @media (max-width: 600px) {
+    
+    /* Mobile-first responsive design */
+    .mindclear-container {
+      width: 100%;
+      max-width: none;
+      padding: 0.75rem;
+      margin: 0;
+      box-sizing: border-box;
+    }
+    
+    .mindclear-main-card {
+      width: 100%;
+      max-width: 100%;
+      padding: 1.5rem 1rem;
+      margin: 0;
+      border-radius: 1rem;
+      box-sizing: border-box;
+    }
+    
+    .mindclear-header {
+      font-size: 2.5rem;
+      line-height: 1.1;
+      margin-bottom: 1rem;
+    }
+    
+    .mindclear-subtitle {
+      font-size: 0.875rem;
+      line-height: 1.4;
+      padding: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .mindclear-btn {
+      width: 100%;
+      padding: 1rem 1.5rem;
+      font-size: 1rem;
+      margin-bottom: 0.75rem;
+      min-height: 48px;
+      border-radius: 0.875rem;
+      box-sizing: border-box;
+    }
+    
+    .mindclear-btn-container {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      width: 100%;
+      margin-top: 1.5rem;
+    }
+    
+    .mindclear-textarea {
+      width: 100%;
+      min-height: 120px;
+      padding: 1rem;
+      font-size: 0.9rem;
+      border-radius: 0.875rem;
+      box-sizing: border-box;
+    }
+    
+    /* Tablet and up */
+    @media (min-width: 768px) {
       .mindclear-container {
-        padding: 0.5rem !important;
-        max-width: 100vw !important;
-        border-radius: 0.5rem !important;
-        box-shadow: none !important;
+        max-width: 48rem;
+        padding: 1rem;
       }
+      
+      .mindclear-main-card {
+        padding: 2rem;
+        border-radius: 1.5rem;
+      }
+      
       .mindclear-header {
-        font-size: 2rem !important;
-        padding: 1.5rem 0.5rem !important;
+        font-size: 3.5rem;
+        margin-bottom: 1.5rem;
       }
+      
+      .mindclear-subtitle {
+        font-size: 1rem;
+        padding: 0.75rem 1rem;
+        margin-bottom: 2rem;
+      }
+      
+      .mindclear-btn-container {
+        flex-direction: row;
+        gap: 1rem;
+        margin-top: 2rem;
+      }
+      
       .mindclear-btn {
-        font-size: 1rem !important;
-        padding: 0.75rem 1.25rem !important;
+        width: auto;
+        padding: 1rem 2.5rem;
+        font-size: 1.125rem;
+        margin-bottom: 0;
+        border-radius: 1rem;
+      }
+      
+      .mindclear-textarea {
+        min-height: 150px;
+        padding: 1.5rem;
+        font-size: 1rem;
+        border-radius: 1.5rem;
+      }
+    }
+    
+    /* Large desktop */
+    @media (min-width: 1024px) {
+      .mindclear-main-card {
+        padding: 3rem 2rem;
+      }
+      
+      .mindclear-header {
+        font-size: 4.5rem;
+      }
+      
+      .mindclear-subtitle {
+        font-size: 1.125rem;
+      }
+    }
+    
+    /* Very small phones */
+    @media (max-width: 375px) {
+      .mindclear-container {
+        padding: 0.5rem;
+      }
+      
+      .mindclear-main-card {
+        padding: 1.25rem 0.75rem;
+      }
+      
+      .mindclear-header {
+        font-size: 2.25rem;
+      }
+      
+      .mindclear-subtitle {
+        font-size: 0.8rem;
+      }
+      
+      .mindclear-btn {
+        padding: 0.875rem 1.25rem;
+        font-size: 0.9rem;
+        min-height: 44px;
       }
     }
   `;
@@ -195,25 +322,20 @@ const MindClear = () => {
             left: "50%",
             transform: "translate(-50%, -50%)",
             zIndex: 10,
-            width: "100%",
-            maxWidth: "48rem",
-            padding: "0 1rem",
             boxSizing: "border-box",
           }}
         >
           <div
+            className="mindclear-main-card"
             style={{
-              width: "100%",
               textAlign: "center",
-              borderRadius: "1.5rem",
-              padding: "3rem 2rem",
               position: "relative",
               overflow: "hidden",
               background: "rgba(255, 255, 255, 0.1)",
               backdropFilter: "blur(20px)",
               border: "1px solid rgba(255, 255, 255, 0.2)",
               boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
-              margin: "0 auto",
+              boxSizing: "border-box",
             }}
           >
             {/* Modern header with animated elements */}
@@ -236,11 +358,10 @@ const MindClear = () => {
               </div>
 
               <h1
+                className="mindclear-header"
                 style={{
-                  fontSize: "clamp(3rem, 8vw, 4.5rem)",
                   fontWeight: "bold",
                   color: "white",
-                  marginBottom: "1rem",
                   fontFamily: "Poppins, sans-serif",
                   letterSpacing: "-0.025em",
                 }}
@@ -249,6 +370,7 @@ const MindClear = () => {
               </h1>
 
               <div
+                className="mindclear-subtitle"
                 style={{
                   display: "inline-flex",
                   alignItems: "center",
@@ -256,8 +378,10 @@ const MindClear = () => {
                   background: "rgba(255, 255, 255, 0.1)",
                   backdropFilter: "blur(10px)",
                   borderRadius: "9999px",
-                  padding: "0.5rem 1rem",
-                  marginBottom: "2rem",
+                  color: "rgba(255, 255, 255, 0.9)",
+                  fontSize: "0.875rem",
+                  fontWeight: "500",
+                  letterSpacing: "0.025em",
                 }}
               >
                 <div
@@ -306,28 +430,17 @@ const MindClear = () => {
                 className="h-48 md:h-56"
               />
 
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: window.innerWidth < 640 ? "column" : "row",
-                  gap: window.innerWidth < 600 ? "0.75rem" : "1rem",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  marginTop: window.innerWidth < 600 ? "1.5rem" : "2rem",
-                }}
-              >
+              <div className="mindclear-btn-container">
                 <button
                   onClick={() => {
                     soundEffects.playClick();
                     setCurrentStep("writing");
                   }}
                   disabled={!userText.trim()}
+                  className="mindclear-btn"
                   style={{
                     position: "relative",
-                    padding: window.innerWidth < 600 ? "0.875rem 1.5rem" : "1rem 2.5rem",
-                    fontSize: window.innerWidth < 600 ? "1rem" : "1.125rem",
                     fontWeight: "600",
-                    borderRadius: window.innerWidth < 600 ? "0.875rem" : "1rem",
                     border: "none",
                     background: userText.trim()
                       ? "linear-gradient(135deg, #667eea 0%, #764ba2 50%, #8338ec 100%)"
@@ -344,9 +457,6 @@ const MindClear = () => {
                     transform: userText.trim()
                       ? "translateY(-2px) scale(1.02)"
                       : "none",
-                    minWidth: window.innerWidth < 600 ? "140px" : "160px",
-                    width: window.innerWidth < 600 ? "100%" : "auto",
-                    boxSizing: "border-box",
                   }}
                   onMouseEnter={(e) => {
                     if (userText.trim()) {

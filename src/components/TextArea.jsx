@@ -51,11 +51,8 @@ const TextArea = ({
           placeholder=""
           onFocus={handleFocus}
           onBlur={handleBlur}
+          className="mindclear-textarea"
           style={{
-            width: "100%",
-            height: window.innerWidth < 600 ? "10rem" : "12rem",
-            padding: window.innerWidth < 600 ? "1rem" : "1.5rem",
-            borderRadius: window.innerWidth < 600 ? "1rem" : "1.5rem",
             background: isFocused
               ? "linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(102,126,234,0.05) 100%)"
               : "rgba(255,255,255,0.03)",
@@ -64,7 +61,6 @@ const TextArea = ({
               ? "2px solid rgba(96, 165, 250, 0.5)"
               : "2px solid rgba(255, 255, 255, 0.1)",
             color: "white",
-            fontSize: window.innerWidth < 600 ? "0.9rem" : "clamp(1rem, 2.5vw, 1.125rem)",
             lineHeight: "1.6",
             resize: "none",
             outline: "none",
@@ -73,7 +69,6 @@ const TextArea = ({
               ? "0 10px 25px -5px rgba(96, 165, 250, 0.2)"
               : "0 4px 6px -1px rgba(0, 0, 0, 0.1)",
             fontFamily: "system-ui, -apple-system, sans-serif",
-            boxSizing: "border-box",
           }}
           maxLength={maxLength}
           autoFocus={autoFocus}
@@ -85,9 +80,9 @@ const TextArea = ({
             position: "absolute",
             transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
             pointerEvents: "none",
-            top: value || isFocused ? (window.innerWidth < 600 ? "0.75rem" : "1rem") : (window.innerWidth < 600 ? "1rem" : "1.5rem"),
-            left: window.innerWidth < 600 ? "1rem" : "1.5rem",
-            fontSize: value || isFocused ? (window.innerWidth < 600 ? "0.75rem" : "0.875rem") : (window.innerWidth < 600 ? "0.9rem" : "1rem"),
+            top: value || isFocused ? "0.75rem" : "1rem",
+            left: "1rem",
+            fontSize: value || isFocused ? "0.75rem" : "0.9rem",
             color:
               value || isFocused
                 ? "rgba(147, 197, 253, 0.8)"
