@@ -31,7 +31,25 @@ const trackSelectionAnimations = `
 // Inject styles
 if (typeof document !== "undefined") {
   const style = document.createElement("style");
-  style.textContent = trackSelectionAnimations;
+  style.textContent = `
+    ${trackSelectionAnimations}
+    @media (max-width: 600px) {
+      .mindclear-container {
+        padding: 0.5rem !important;
+        max-width: 100vw !important;
+        border-radius: 0.5rem !important;
+        box-shadow: none !important;
+      }
+      .mindclear-header {
+        font-size: 2rem !important;
+        padding: 1.5rem 0.5rem !important;
+      }
+      .mindclear-btn {
+        font-size: 1rem !important;
+        padding: 0.75rem 1.25rem !important;
+      }
+    }
+  `;
   document.head.appendChild(style);
 }
 
@@ -170,6 +188,7 @@ const MindClear = () => {
       >
         <ParticleBackground emotion={analysis?.emotion || "default"} />
         <div
+          className="mindclear-container"
           style={{
             position: "absolute",
             top: "50%",

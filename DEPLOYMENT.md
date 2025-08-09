@@ -14,15 +14,18 @@
 ### Cara Setup Environment Variables di Vercel:
 
 #### Method 1: Via Vercel Dashboard (Recommended)
+
 1. **Login ke [Vercel Dashboard](https://vercel.com/dashboard)**
 2. **Pilih Project "mind-clear-alpha"**
 3. **Go to Settings → Environment Variables**
 4. **Add New Variable #1:**
+
    - **Name**: `VITE_GEMINI_API_KEY`
    - **Value**: `[PASTE_YOUR_ACTUAL_API_KEY_HERE]`
    - **Environment**: ✅ Production, ✅ Preview, ✅ Development
 
 5. **Add New Variable #2:**
+
    - **Name**: `VITE_APP_NAME`
    - **Value**: `MindClear+`
    - **Environment**: ✅ Production, ✅ Preview, ✅ Development
@@ -33,6 +36,7 @@
    - **Environment**: ✅ Production
 
 #### Method 2: Via Vercel CLI
+
 ```bash
 # Set environment variables via CLI
 vercel env add VITE_GEMINI_API_KEY production
