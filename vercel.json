@@ -15,8 +15,5 @@
       "src": "/(.*)",
       "dest": "/index.html"
     }
-  ],
-  "env": {
-    "VITE_GEMINI_API_KEY": "@gemini-api-key"
-  }
+  ]
 }
