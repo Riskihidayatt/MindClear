@@ -7,18 +7,19 @@ const ComfortMessage = ({ message, onTryAgain }) => {
     <div style={{ animation: "float 3s ease-in-out infinite" }}>
       <div
         style={{
-          maxWidth: "32rem",
+          maxWidth: window.innerWidth < 600 ? "100%" : "32rem",
           margin: "0 auto",
           textAlign: "center",
           background: "rgba(255, 255, 255, 0.1)",
           backdropFilter: "blur(20px)",
-          borderRadius: "1.5rem",
-          padding: "clamp(2rem, 5vw, 3rem)",
+          borderRadius: window.innerWidth < 600 ? "1rem" : "1.5rem",
+          padding: window.innerWidth < 600 ? "1.5rem" : "clamp(2rem, 5vw, 3rem)",
           border: "1px solid rgba(255, 255, 255, 0.2)",
           boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
+          boxSizing: "border-box",
         }}
       >
-        <div style={{ fontSize: "4rem", marginBottom: "1.5rem" }}>💙</div>
+        <div style={{ fontSize: window.innerWidth < 600 ? "3rem" : "4rem", marginBottom: "1.5rem" }}>💙</div>
 
         <h3
           style={{
@@ -35,9 +36,9 @@ const ComfortMessage = ({ message, onTryAgain }) => {
         <div
           style={{
             background: "rgba(255, 255, 255, 0.1)",
-            borderRadius: "1rem",
-            padding: "1.5rem",
-            marginBottom: "2rem",
+            borderRadius: window.innerWidth < 600 ? "0.75rem" : "1rem",
+            padding: window.innerWidth < 600 ? "1rem" : "1.5rem",
+            marginBottom: window.innerWidth < 600 ? "1.5rem" : "2rem",
             border: "1px solid rgba(255, 255, 255, 0.2)",
           }}
         >

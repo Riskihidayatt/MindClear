@@ -15,13 +15,15 @@ const AnalysisResult = ({
       style={{
         background: "rgba(255, 255, 255, 0.1)",
         backdropFilter: "blur(20px)",
-        borderRadius: "1.5rem",
-        padding: "clamp(2rem, 5vw, 3rem)",
+        borderRadius: window.innerWidth < 600 ? "1rem" : "1.5rem",
+        padding: window.innerWidth < 600 ? "1.5rem" : "clamp(2rem, 5vw, 3rem)",
         border: "1px solid rgba(255, 255, 255, 0.2)",
         boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
         transition: "all 0.5s ease",
         opacity: isBurning ? 0.8 : 1,
         transform: isBurning ? "scale(0.95)" : "scale(1)",
+        margin: window.innerWidth < 600 ? "0.5rem" : "0",
+        boxSizing: "border-box",
       }}
     >
       <h3
@@ -40,9 +42,9 @@ const AnalysisResult = ({
       <div
         style={{
           background: "rgba(255, 255, 255, 0.1)",
-          borderRadius: "1rem",
-          padding: "1.5rem",
-          marginBottom: "1.5rem",
+          borderRadius: window.innerWidth < 600 ? "0.75rem" : "1rem",
+          padding: window.innerWidth < 600 ? "1rem" : "1.5rem",
+          marginBottom: window.innerWidth < 600 ? "1rem" : "1.5rem",
           border: "1px solid rgba(255, 255, 255, 0.2)",
         }}
       >
@@ -66,10 +68,10 @@ const AnalysisResult = ({
             disabled={isBurning}
             style={{
               position: "relative",
-              padding: "1.25rem 2.5rem",
-              fontSize: "1.25rem",
+              padding: window.innerWidth < 600 ? "1rem 1.5rem" : "1.25rem 2.5rem",
+              fontSize: window.innerWidth < 600 ? "1rem" : "1.25rem",
               fontWeight: "600",
-              borderRadius: "1.25rem",
+              borderRadius: window.innerWidth < 600 ? "1rem" : "1.25rem",
               border: "none",
               background: isBurning
                 ? "linear-gradient(135deg, #ef4444 0%, #dc2626 50%, #b91c1c 100%)"
@@ -86,7 +88,9 @@ const AnalysisResult = ({
               transform: isBurning
                 ? "scale(0.95)"
                 : "translateY(-2px) scale(1.02)",
-              minWidth: "220px",
+              minWidth: window.innerWidth < 600 ? "180px" : "220px",
+              width: window.innerWidth < 600 ? "100%" : "auto",
+              boxSizing: "border-box",
             }}
             onMouseEnter={(e) => {
               if (!isBurning) {

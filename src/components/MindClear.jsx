@@ -310,10 +310,10 @@ const MindClear = () => {
                 style={{
                   display: "flex",
                   flexDirection: window.innerWidth < 640 ? "column" : "row",
-                  gap: "1rem",
+                  gap: window.innerWidth < 600 ? "0.75rem" : "1rem",
                   justifyContent: "center",
                   alignItems: "center",
-                  marginTop: "2rem",
+                  marginTop: window.innerWidth < 600 ? "1.5rem" : "2rem",
                 }}
               >
                 <button
@@ -324,10 +324,10 @@ const MindClear = () => {
                   disabled={!userText.trim()}
                   style={{
                     position: "relative",
-                    padding: "1rem 2.5rem",
-                    fontSize: "1.125rem",
+                    padding: window.innerWidth < 600 ? "0.875rem 1.5rem" : "1rem 2.5rem",
+                    fontSize: window.innerWidth < 600 ? "1rem" : "1.125rem",
                     fontWeight: "600",
-                    borderRadius: "1rem",
+                    borderRadius: window.innerWidth < 600 ? "0.875rem" : "1rem",
                     border: "none",
                     background: userText.trim()
                       ? "linear-gradient(135deg, #667eea 0%, #764ba2 50%, #8338ec 100%)"
@@ -344,7 +344,9 @@ const MindClear = () => {
                     transform: userText.trim()
                       ? "translateY(-2px) scale(1.02)"
                       : "none",
-                    minWidth: "160px",
+                    minWidth: window.innerWidth < 600 ? "140px" : "160px",
+                    width: window.innerWidth < 600 ? "100%" : "auto",
+                    boxSizing: "border-box",
                   }}
                   onMouseEnter={(e) => {
                     if (userText.trim()) {
